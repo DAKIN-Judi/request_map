@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h5>
+        My request
+    </h5>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var paramters = window.location.href.split('/')[3]; 
+            var splited_parametters  = paramters.split('&');
+
+            var body = Array();
+            splited_parametters.forEach( params => {
+                var params = params.replace("?", "");
+                
+                body.push({ name: params.split("=")[0], value: params.split("=")[1] });
+            });
+
+            console.log(body);
+        });
+    </script>
+    
+    
+</body>
+</html>
